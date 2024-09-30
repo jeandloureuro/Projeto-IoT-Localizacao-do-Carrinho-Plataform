@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="refresh" content="3">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <title>John Deere - Layout</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="row"></div>
+                <div class="col-sm-7">
+                    <div class= "contact-info" style="text-align: center;">
+                        <a href="tel:+5511911111111"><img src="phone.png" alt="logoPhone"> (11) 9 1111 1111</a>
+                        <a href="https://wa.me/551196190058"><img src="whatsapp.png" alt="logoWhatsApp"> WhatsApp: (11) 9 1111 1111</a>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class= "contact-info" style="margin-left: 35%;"> 
+                        <a href="mailto:RuralRidersIECS@gmail.com"><img src="mail.png" alt="logoMail"> RuralRidersIECS@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegação -->
+    <nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class= "logo" style="text-align: center;"> <img src="logoJD.png" alt="Logo John Deere"> </div>
+                </div>
+                <div class="col-sm-8">
+                        <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contato</a></li>
+                        </ul>
+                </div>
+                <div class="col-sm-2">
+                    <button>Visualizar Carrinhos</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+        <!-- <img src="mapaJD.png" alt="Layout de mapa"> -->
+        <canvas id="meuCanvas" width="1000" height="710"></canvas> <!-- Tenho que dividir todas as cordenadas por (38, 27)  26,315789473684210526315789473684 depois -->
+    </div>
+
+    <div id="dados"></div>
+    
+
+    <script src="script.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
