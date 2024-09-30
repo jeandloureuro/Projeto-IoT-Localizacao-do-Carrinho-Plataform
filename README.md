@@ -22,8 +22,14 @@
  
  ![John Deere (1)](https://github.com/user-attachments/assets/c5f051c7-4f3d-4cf7-b1d4-36632bf4eaf4)
  
- #Carrinho indo entregar as peças 
+ # Carrinho indo entregar as peças 
  
+ ![John Deere (2)](https://github.com/user-attachments/assets/30add42b-72e8-488c-9b79-b0d80fad1f3f)
+ ![John Deere (3)](https://github.com/user-attachments/assets/e374ab92-9d37-4ecb-ba24-f75a1950e54c)
+
+# Feito a entrega, volta para o estoque
+
+ ![John Deere (5)](https://github.com/user-attachments/assets/3108be6e-ac76-40ab-8597-6cb6873a57ed)
  
  O sistema utiliza triangulação de sinal Wi-Fi, onde o ESP32 coleta o RSSI (Received Signal Strength Indicator) de diferentes roteadores Wi-Fi para estimar a posição do carrinho plataforma. Esses dados são enviados ao servidor, que calcula a posição exata e exibe na dashboard.
 # Resultados esperados:
