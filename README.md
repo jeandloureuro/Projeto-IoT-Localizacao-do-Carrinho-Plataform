@@ -5,6 +5,8 @@
 # Desenvolvimento
  # Arquitetura do Sistema
   A arquitetura proposta foi elaborada com base em um sistema IoT, onde o ESP32 atua como o elemento central para coleta e envio dos dados de localização. A comunicação ocorre via rede Wi-Fi, e os dados são processados por um servidor local ou na nuvem.
+  ![John Deere](https://github.com/user-attachments/assets/0b59af4f-719c-49e8-a7d9-f9a46e8babba)
+ 
  # Componentes principais:
   ESP32: Dispositivo principal responsável por coletar os dados de localização do carrinho.
   Servidor de Processamento: Hospeda o sistema de triangulação de sinal Wi-Fi e processa os dados de localização.
