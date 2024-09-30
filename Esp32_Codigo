@@ -1,0 +1,120 @@
+#include <WiFi.h>
+#include <HTTPClient.h>
+
+const char* ssid = "NomeDaRede ";           // Nome da rede Wi-Fi
+const char* password = "SenhaDaRede";      // Senha da rede Wi-Fi
+
+const char* serverName = "http://xxx.168.0.14/ChallengeFiap2024/salvardados.php";  // URL do seu site
+
+// Coordenadas dos APs
+float Roteador1X = 0;
+float Roteador1Y = 0;  // Coordenadas do AP1
+float Roteador2X = 38;
+float Roteador2Y = 0;  // Coordenadas do AP2
+float Roteador3X = 19; 
+float Roteador3Y = 21;  // Coordenadas do AP3
+
+const float RSSI_ref = -30;  // Valor de referência do RSSI a 1 metro (ajustar conforme necessário)
+const float n = 2.0; // Fator de propagação do sinal
+
+void setup() {
+  Serial.begin(115200);
+
+  //WiFi.disconnect();
+  //WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Conectando ao WiFi...");
+  }
+  Serial.println("Conectado ao WiFi");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+
+  Serial.println("Varredura de redes Wi-Fi...");
+  int numNetworks = WiFi.scanNetworks();
+    if (numNetworks >= 3) {
+      int rssi1 = WiFi.RSSI(0);
+      int rssi2 = WiFi.RSSI(1);
+      int rssi3 = WiFi.RSSI(2);
+
+      // Calcular as distâncias baseadas nos valores de RSSI
+      float d1 = calculateDistance(rssi1);
+      float d2 = calculateDistance(rssi2);
+      float d3 = calculateDistance(rssi3);
+
+      // Imprimir as distâncias
+      Serial.print("Distância ao AP1: "); Serial.println(d1);
+      Serial.print("Distância ao AP2: "); Serial.println(d2);
+      Serial.print("Distância ao AP3: "); Serial.println(d3);
+
+      float A = 2*(Roteador2X - Roteador1X);
+      float B = 2*(Roteador2Y - Roteador1Y);
+      float C = (d1*d1) - (d2*d2) - (Roteador1X*Roteador1X) + (Roteador2X*Roteador2X) - (Roteador1Y*Roteador1Y) + (Roteador2Y*Roteador2Y);
+      float D = 2*(Roteador3X - Roteador2X);
+      float E = 2*(Roteador3Y - Roteador2Y);
+      float F = (d2*d2) - (d3*d3) - (Roteador2X*Roteador2X) + (Roteador3X*Roteador3X) - (Roteador2Y*Roteador2Y) + (Roteador3Y*Roteador3Y);
+
+      float x = ((C*E) - (F*B)) / ((E*A) - (B*D));
+      float y = -((C*D) - (A*F)) / ((B*D) - (A*E)); //pode ser adicionada a multiplicação por -1 na hora dos testes pra que a matriz funcione de forma correta
+
+      // Imprimir a posição calculada
+      Serial.print("Posição estimada: (");
+      Serial.print(x);
+      Serial.print(" , ");
+      Serial.print(y);
+      Serial.println(")");
+
+      int posX = round(x);
+      int posY = round(y);
+
+      posX = constrain(posX, 0, 38);
+      posY = constrain(posY, 0, 27);
+
+      Serial.print("Posição na matriz: (");
+      Serial.print(posX);
+      Serial.print(" , ");
+      Serial.print(posY);
+      Serial.println(")");
+
+      http.begin(serverName);
+      Serial.println(http.connected());
+
+      String valor1 = String(posX) + " , " + String(posY) ;
+      String valor2 = "Peso" ;
+
+      // Crie a string com os dados que você quer enviar
+      String httpRequestData = "parametro1=" + valor1 + "&parametro2=" + valor2;  // Ajuste para seus dados
+      http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+
+      // Envia a solicitação POST
+      int httpResponseCode = http.POST(httpRequestData);
+      Serial.println("Preparando para enviar a requisição POST...");
+
+      if (httpResponseCode > 0) {
+        String response = http.getString();
+        Serial.println(httpResponseCode);  // Código de resposta
+        Serial.println(response);          // Resposta do servidor
+      } else {
+        Serial.print("Erro ao enviar solicitação: ");
+        Serial.println(httpResponseCode);
+      }
+
+    } else {
+      Serial.println("Nenhuma rede Wi-Fi encontrada.");
+    }
+
+    http.end();
+  }
+
+  delay(5000);  // Aguarde 10 segundos antes de enviar novamente
+}
+
+float calculateDistance(int rssi) {
+  return pow(10, (RSSI_ref - rssi) / (10 * n));
+}
