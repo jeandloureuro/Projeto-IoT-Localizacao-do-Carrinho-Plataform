@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+ }
+
+header {
+    background-color: #377C2B;
+    color: white;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav .logo img {
+    margin-left: 15%;
+    height: 110px;
+    width: 140px;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info img {
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 20px;
+}
+
+nav {
+    background-color: white;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    gap: 30px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #377C2B;
+    font-weight: bold;
+}
+
+.main-content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.main-content img {
+    width: 80%;
+    max-width: 800px;
+    border: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+nav button {
+    background-color: #377C2B;
+    color: white;
+    border: none;        
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-top: 15%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav button:hover {
+    background-color: #316e26;
+}
+
+canvas {
+    background-color: none;
+}
