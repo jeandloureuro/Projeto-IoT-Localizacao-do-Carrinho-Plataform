@@ -18,6 +18,13 @@
  Draw.io: Ferramenta utilizada para a criação do diagrama da arquitetura.
  GitHub: Controle de versão e portfólio do projeto.
 # Funcionamento
+ # Pedido de peças feito
+ 
+ ![John Deere (1)](https://github.com/user-attachments/assets/c5f051c7-4f3d-4cf7-b1d4-36632bf4eaf4)
+ 
+ #Carrinho indo entregar as peças 
+ 
+ 
  O sistema utiliza triangulação de sinal Wi-Fi, onde o ESP32 coleta o RSSI (Received Signal Strength Indicator) de diferentes roteadores Wi-Fi para estimar a posição do carrinho plataforma. Esses dados são enviados ao servidor, que calcula a posição exata e exibe na dashboard.
 # Resultados esperados:
  Localização precisa em tempo real.
