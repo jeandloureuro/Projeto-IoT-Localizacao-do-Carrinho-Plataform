@@ -33,7 +33,7 @@
  
  O sistema utiliza triangulação de sinal Wi-Fi, onde o ESP32 coleta o RSSI (Received Signal Strength Indicator) de diferentes roteadores Wi-Fi para estimar a posição do carrinho plataforma. Esses dados são enviados ao servidor, que calcula a posição exata e exibe na dashboard.
 
-## Testes de Desempenho:
+# Testes de Desempenho:
   Localização precisa em tempo real.
   Visualização clara da posição do carrinho na fábrica.
   
