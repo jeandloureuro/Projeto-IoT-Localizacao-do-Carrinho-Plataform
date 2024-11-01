@@ -45,17 +45,15 @@
 # 2. Teste de Estabilidade de Sinal:
   O teste de estabilidade foi realizado simultaneamente com o teste de precisão, para observar a consistência do sinal em condições de baixa interferência. Monitoramos a conexão do ESP32 e verificamos a taxa de perda de pacotes e eventuais quedas de conexão ao longo do processo.
 
-  Resultados Obtidos:
+ # Resultados Obtidos:
   Em ambientes com baixa interferência, o sinal se manteve estável, sem quedas significativas. A taxa de perda de pacotes foi mínima, indicando que o sistema é confiável nesse tipo de ambiente.
    ![EspFuncionando)](assets/EspFuncionando.jpeg)
  Discussão dos Resultados:
   Os testes indicam que o sistema possui uma boa estabilidade em condições de baixa interferência, mas a precisão da localização ainda tem margem para melhoria. A variação de 60 cm, apesar de aceitável em alguns cenários, pode impactar negativamente em contextos onde uma precisão mais rigorosa é necessária.
 
- Soluções Futuras:
+# Soluções:
   Para reduzir a variação observada, podemos considerar o uso de algoritmos de filtragem de sinal, como o filtro de Kalman, ou o aumento da densidade dos pontos de referência para melhorar a precisão da triangulação. Além disso, o uso de antenas específicas e otimizações no código de triangulação podem ajudar a melhorar a precisão de localização.
 
-
-# Teste de Estabilidade de Sinal
 a) Definição do Teste
  Durante os testes de estabilidade do sinal WiFi com o ESP32, observamos que, em um ambiente com interferência de 2.2 (baixa interferência), a intensidade média do sinal estabilizou em um valor fixo de -45 dBm. Esse resultado indica que, mesmo com a presença de interferência, o dispositivo conseguiu manter uma qualidade de sinal robusta.
 
@@ -63,15 +61,14 @@ a) Definição do Teste
 
  Essas medições são cruciais para entender o comportamento do ESP32 em condições de interferência, ajudando a definir os limites operacionais do dispositivo. Além disso, fornecem insights sobre como otimizar a implementação em cenários desafiadores. A manutenção de um sinal em -45 dBm, mesmo em um ambiente com baixa interferência, é um indicativo positivo da capacidade do sistema em garantir comunicação eficiente, embora com limitações na precisão de localização.
 
-# b) Evidências de Testes
+b) Evidências de Testes
  O teste foi realizado em um ambiente de baixa interferência. Observamos a taxa de transmissão de pacotes e a estabilidade da conexão ao longo do teste.
 
 Capturas de Tela: Abaixo, apresentamos algumas evidências que demonstram o comportamento do sinal. As capturas mostram a taxa de transmissão e os pacotes recebidos em intervalos regulares, além de indicar qualquer perda de pacotes.
 
-# c) Discussão dos Resultados
+c) Discussão dos Resultados
  Os resultados mostraram que, em um ambiente com baixa interferência, o ESP32 conseguiu manter uma conexão estável, com uma taxa mínima de perda de pacotes. Isso indica que, para ambientes semelhantes ao dos testes, o sistema é confiável e apresenta uma boa performance de conexão. No entanto, em ambientes de maior interferência, pode ser necessário realizar ajustes para garantir a estabilidade do sinal.
-
-# d) Soluções Futuras
+d) Soluções Futuras
  Para melhorar a estabilidade do sinal em ambientes mais desafiadores, consideramos algumas soluções futuras:
 
 Ajuste de Potência de Sinal: Aumentar a potência de sinal do ESP32 para reduzir a perda de pacotes em locais com interferência.
