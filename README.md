@@ -46,7 +46,7 @@
 
  # Resultados Obtidos:
   Em ambientes com baixa interferência, o sinal se manteve estável, sem quedas significativas. A taxa de perda de pacotes foi mínima, indicando que o sistema é confiável nesse tipo de ambiente.
-
+   ![EspFuncionando)](assets/EspFuncionando.jpeg)
  # Discussão dos Resultados:
   Os testes indicam que o sistema possui uma boa estabilidade em condições de baixa interferência, mas a precisão da localização ainda tem margem para melhoria. A variação de 60 cm, apesar de aceitável em alguns cenários, pode impactar negativamente em contextos onde uma precisão mais rigorosa é necessária.
 
