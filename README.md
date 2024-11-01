@@ -36,7 +36,7 @@
   Localização precisa em tempo real.
   Visualização clara da posição do carrinho na fábrica.
   
- # Teste de Precisão de Localização: 
+ # 1. Teste de Precisão de Localização: 
   Realizamos o teste de precisão de localização com o objetivo de verificar a proximidade entre a posição real e a posição calculada pelo sistema de triangulação de WiFi. Os testes foram realizados em um ambiente com baixa interferência de sinal, posicionado o dispositivo ESP32 a distâncias de 1 metro e 2 metros dos pontos de referência.
   ![ImagemTest)](assets/ImagemTest.jpeg)
  Resultados Obtidos:
