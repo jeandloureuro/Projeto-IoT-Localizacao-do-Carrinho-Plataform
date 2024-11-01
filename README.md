@@ -32,26 +32,24 @@
  ![John Deere (5)](https://github.com/user-attachments/assets/3108be6e-ac76-40ab-8597-6cb6873a57ed)
  
  O sistema utiliza triangulação de sinal Wi-Fi, onde o ESP32 coleta o RSSI (Received Signal Strength Indicator) de diferentes roteadores Wi-Fi para estimar a posição do carrinho plataforma. Esses dados são enviados ao servidor, que calcula a posição exata e exibe na dashboard.
-# Resultados esperados:
+# RESULTADOS ESPERADOS:
  Localização precisa em tempo real.
  Visualização clara da posição do carrinho na fábrica.
-
-# Testes de Desempenho
- Teste de Precisão de Localização: Realizamos o teste de precisão de localização com o objetivo de verificar a proximidade entre a posição real e a posição calculada pelo sistema de triangulação de WiFi. Os testes foram realizados em um ambiente com baixa interferência de sinal, posicionado o dispositivo ESP32 a distâncias de 1 metro e 2 metros dos pontos de referência.
-
-# Resultados Obtidos:
+ # Testes de Desempenho
+  Teste de Precisão de Localização: Realizamos o teste de precisão de localização com o objetivo de verificar a proximidade entre a posição real e a posição calculada pelo sistema de triangulação de WiFi. Os testes foram realizados em um ambiente com baixa interferência de sinal, posicionado o dispositivo ESP32 a distâncias de 1 metro e 2 metros dos pontos de referência.
+ # Resultados Obtidos:
  Observamos uma variação média de 60 cm entre a posição calculada e a posição real em ambas as distâncias. Essa discrepância mostra que, mesmo em um ambiente controlado e de baixa interferência, o sistema ainda apresenta limitações em relação à precisão. Esse valor pode ser influenciado pela potência do sinal WiFi, a sensibilidade do ESP32 e o método de triangulação utilizado.
+ 
+ # 2. Teste de Estabilidade de Sinal:
+  O teste de estabilidade foi realizado simultaneamente com o teste de precisão, para observar a consistência do sinal em condições de baixa interferência. Monitoramos a conexão do ESP32 e verificamos a taxa de perda de pacotes e eventuais quedas de conexão ao longo do processo.
 
-# 2. Teste de Estabilidade de Sinal:
- O teste de estabilidade foi realizado simultaneamente com o teste de precisão, para observar a consistência do sinal em condições de baixa interferência. Monitoramos a conexão do ESP32 e verificamos a taxa de perda de pacotes e eventuais quedas de conexão ao longo do processo.
+ # Resultados Obtidos:
+  Em ambientes com baixa interferência, o sinal se manteve estável, sem quedas significativas. A taxa de perda de pacotes foi mínima, indicando que o sistema é confiável nesse tipo de ambiente.
 
-# Resultados Obtidos:
- Em ambientes com baixa interferência, o sinal se manteve estável, sem quedas significativas. A taxa de perda de pacotes foi mínima, indicando que o sistema é confiável nesse tipo de ambiente.
+ # Discussão dos Resultados:
+  Os testes indicam que o sistema possui uma boa estabilidade em condições de baixa interferência, mas a precisão da localização ainda tem margem para melhoria. A variação de 60 cm, apesar de aceitável em alguns cenários, pode impactar negativamente em contextos onde uma precisão mais rigorosa é necessária.
 
-# Discussão dos Resultados:
- Os testes indicam que o sistema possui uma boa estabilidade em condições de baixa interferência, mas a precisão da localização ainda tem margem para melhoria. A variação de 60 cm, apesar de aceitável em alguns cenários, pode impactar negativamente em contextos onde uma precisão mais rigorosa é necessária.
-
-# Soluções Futuras:
- Para reduzir a variação observada, podemos considerar o uso de algoritmos de filtragem de sinal, como o filtro de Kalman, ou o aumento da densidade dos pontos de referência para melhorar a precisão da triangulação. Além disso, o uso de antenas específicas e otimizações no código de triangulação podem ajudar a melhorar a precisão de localização.
+ # Soluções Futuras:
+  Para reduzir a variação observada, podemos considerar o uso de algoritmos de filtragem de sinal, como o filtro de Kalman, ou o aumento da densidade dos pontos de referência para melhorar a precisão da triangulação. Além disso, o uso de antenas específicas e otimizações no código de triangulação podem ajudar a melhorar a precisão de localização.
 
 
